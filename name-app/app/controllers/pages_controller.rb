@@ -36,7 +36,26 @@ class PagesController < ApplicationController
   def get_form
 
   end
+
+  def submit_form
+    @message = params[:message]
+  end
+
+  def guess_number
+
+  end
   
+  def submit_number
+    guess = params[:number].to_i
+    correct_answer = 99
+    if guess == correct_answer
+      @message = "You got it right! Great job!"
+    elsif guess < correct_answer
+      @message = "You guessed too low. Go back and try again"
+    else 
+      @message = "You guessed too high. Go back and try again."
+    end
+  end
 
   
 
